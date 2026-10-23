@@ -62,6 +62,11 @@ export function createStyles(colors: Colors) {
     // Finding card
     card: { marginHorizontal: 12, marginVertical: 6, padding: 10, borderRadius: 8, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.surface1, gap: 6 },
     cardDismissed: { opacity: 0.5 },
+    cardCurrent: { borderColor: colors.accent, borderWidth: 2 },
+    // Findings index
+    index: { marginHorizontal: 12, marginBottom: 6, borderWidth: 1, borderColor: colors.border, borderRadius: 8, overflow: "hidden" as const },
+    indexRow: { flexDirection: "row" as const, alignItems: "center" as const, gap: 8, paddingHorizontal: 10, paddingVertical: 6, borderBottomWidth: 1, borderBottomColor: colors.border },
+    indexRowCurrent: { backgroundColor: colors.surface2 },
     cardHead: { flexDirection: "row" as const, alignItems: "center" as const, gap: 8, flexWrap: "wrap" as const },
     severity: { fontSize: 11, fontWeight: "700" as const, borderWidth: 1, borderRadius: 10, paddingHorizontal: 7, paddingVertical: 1 },
     cardTitle: { color: colors.foreground, fontWeight: "600" as const, fontSize: 13, flex: 1 },

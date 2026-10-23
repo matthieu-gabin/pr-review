@@ -4,6 +4,7 @@ A **Review** panel on every git workspace: the checked-out branch's pull request
 
 - **Run AI review** starts a Claude agent (`claude/claude-opus-5-5`, auto permission mode) in the workspace with the prompt `/pr-review <number>`; **Open agent** shows its transcript; **Review again** reruns it
 - Findings: severity (bug, risk, suggestion, nit, question), title, body; **Edit**, **Dismiss** / **Restore**; the ones outside the diff are listed apart and posted in the review body
+- Navigation: **‹ n / N ›** in the header steps through the open findings in diff order, and the findings index under the review body jumps to any of them; the current card is outlined. The diff is a virtualised list, so large pull requests stay responsive
 - **Post review with N comments**: one GitHub review (Comment / Approve / Request changes) carrying the kept findings as inline comments, then opens it
 - Findings file: `~/.cache/pr-review/findings/<owner>__<name>__<number>.json`, written by the skill, updated by the panel
 - The skill: `server/skillText.ts` (a template literal, since the bundled server has no file path of its own), copied to `~/.claude/skills/pr-review/SKILL.md` each time the plugin loads (the copy wins; edit the plugin's file)

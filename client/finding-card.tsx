@@ -7,12 +7,14 @@ interface Props {
   finding: Finding;
   /** Set when the finding's line is not in the diff: it will go in the review body instead of inline. */
   detached: boolean;
+  /** The one Prev / Next or the index last jumped to. */
+  current: boolean;
   colors: Colors;
   styles: Styles;
   onChange: (finding: Finding) => void;
 }
 
-export function FindingCard({ finding, detached, colors, styles, onChange }: Props) {
+export function FindingCard({ finding, detached, current, colors, styles, onChange }: Props) {
   const [editing, setEditing] = useState(false);
   const [body, setBody] = useState(finding.body);
   const color = severityColor(finding.severity, colors);
@@ -21,7 +23,7 @@ export function FindingCard({ finding, detached, colors, styles, onChange }: Pro
   const range = finding.startLine !== null && finding.startLine < finding.line ? `${finding.startLine}–${finding.line}` : String(finding.line);
 
   return (
-    <View style={[styles.card, dismissed && styles.cardDismissed]}>
+    <View style={[styles.card, dismissed && styles.cardDismissed, current && styles.cardCurrent]}>
       <View style={styles.cardHead}>
         <Text style={[styles.severity, { color, borderColor: color }]}>{finding.severity}</Text>
         <Text style={styles.cardTitle}>{finding.title}</Text>
