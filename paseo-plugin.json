@@ -1,0 +1,8 @@
+{
+  "id": "pr-review",
+  "name": "PR review",
+  "description": "Runs the pr-review Claude Code skill on a checked-out pull request, shows its findings on the diff and posts the ones you keep to GitHub as one review",
+  "requirements": {
+    "paseo": ">=0.12.0"
+  }
+}
